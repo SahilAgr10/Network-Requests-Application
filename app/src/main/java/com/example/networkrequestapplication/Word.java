@@ -10,12 +10,13 @@ public class Word {
 
 
 
-    public Word(double Magnitude, String PLace1, String Place2,String date,String Time){
+    public Word(double Magnitude, String PLace1, String Place2,String date,String Time , String urll){
         mMagnitude = Magnitude;
         mPLace1 = PLace1;
         mPlace2 = Place2;
         mdate = date;
         mTime = Time;
+        url = urll;
 
     }
 

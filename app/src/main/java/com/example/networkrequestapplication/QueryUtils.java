@@ -60,7 +60,7 @@ public class QueryUtils {
                 SimpleDateFormat dateFormat = new SimpleDateFormat("h:mm a");
                 String timeToShow = dateFormat.format(datetime);
 
-                Word currentearthquakes = new Word(magnitude,Arr1,Arr2,dateToDisplay,timeToShow);
+                Word currentearthquakes = new Word(magnitude,Arr1,Arr2,dateToDisplay,timeToShow,url);
                 earthquakes.add(currentearthquakes);
             }
 
