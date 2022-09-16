@@ -1,6 +1,7 @@
 package com.example.networkrequestapplication;
 
 import android.os.AsyncTask;
+import android.text.TextUtils;
 import android.util.Log;
 
 import org.json.JSONArray;
@@ -21,15 +22,15 @@ import java.util.List;
 
 public class QueryUtils {
     private static final String LOG_TAG = MainActivity.class.getName();
-    private static final String USGS_REQUEST_URL = "https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&starttime=2021-01-01&endtime=2021-12-01&minmagnitude=6";
+   // private static final String USGS_REQUEST_URL = "https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&starttime=2021-01-01&endtime=2021-12-01&minmagnitude=6";
 
-    private QueryUtils() {
-    }
+    public static List<Word> extractFeatureFromJson(String earthquAKEJSON){
 
+        if (TextUtils.isEmpty(earthquAKEJSON)) {
+            return null;
+        }
 
-    public static ArrayList<Word> extractFeatureFromJson(String earthquAKEJSON){
-
-        ArrayList<Word> earthquakes = new ArrayList<>();
+        List<Word> earthquakes = new ArrayList<>();
 
         try{
 

@@ -17,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
     private static final String LOG_TAG = MainActivity.class.getName();
 
     private static final String USGS_REQUEST_URL =
-            "http://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&orderby=time&minmag=6&limit=10";
+            "https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&eventtype=earthquake&orderby=time&minmag=5&limit=10";
 
     private WordAdapter mAdapter;
 
@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
         task.execute(USGS_REQUEST_URL);
 
 
-        ArrayList<Word> earthquakes = QueryUtils.extractFeatureFromJson(USGS_REQUEST_URL);
+        //List<Word> earthquakes = QueryUtils.extractFeatureFromJson(USGS_REQUEST_URL);
         // Find a reference to the {@link ListView} in the layout
         ListView listView = (ListView) findViewById(R.id.list);
         //WordAdapter adapter = new WordAdapter(this,earthquakes);
