@@ -22,19 +22,14 @@ import java.util.List;
 
 public class QueryUtils {
     private static final String LOG_TAG = MainActivity.class.getName();
-   // private static final String USGS_REQUEST_URL = "https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&starttime=2021-01-01&endtime=2021-12-01&minmagnitude=6";
 
     public static List<Word> extractFeatureFromJson(String earthquAKEJSON){
-
         if (TextUtils.isEmpty(earthquAKEJSON)) {
             return null;
         }
-
         List<Word> earthquakes = new ArrayList<>();
 
         try{
-
-
             JSONObject baseJsonResponse = new JSONObject(earthquAKEJSON);
             JSONArray earthquakeArray = baseJsonResponse.getJSONArray("features");
 
@@ -53,7 +48,7 @@ public class QueryUtils {
                 long tome = Long.parseLong(time);
                 long timeInMilliseconds = tome;
                 Date dateObject = new Date(timeInMilliseconds);
-                SimpleDateFormat dateFormatter = new SimpleDateFormat("MMM DD, yyyy ");
+                SimpleDateFormat dateFormatter = new SimpleDateFormat("MMM dd, yyyy ");
                 String dateToDisplay = dateFormatter.format(dateObject);
 
                 Date datetime = new Date(timeInMilliseconds);
@@ -70,7 +65,6 @@ public class QueryUtils {
         }
         return earthquakes;
     }
-
     public static List<Word> fetchEarthquakeData(String requestUrl) {
         URL url = createUrl(requestUrl);
         String jsonResponse = null;
@@ -82,7 +76,6 @@ public class QueryUtils {
         List<Word> earthquakes = extractFeatureFromJson(jsonResponse);
         return earthquakes;
     }
-
     private static URL createUrl(String usgsRequestUrl) {
         URL url = null;
         try {
@@ -93,7 +86,6 @@ public class QueryUtils {
         }
         return url;
     }
-
     private static String makeHttpRequest(URL url) throws IOException {
         String jsonResponse = "";
         HttpURLConnection urlConnection = null;
@@ -132,6 +124,5 @@ public class QueryUtils {
         }
         return output.toString();
     }
+}
 
-
-    }
